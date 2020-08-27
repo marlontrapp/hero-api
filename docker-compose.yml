@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  db:
+    image: "postgres:10-alpine"
+    volumes:
+      -  postgresql_data:/var/lib/postgresql/data
+    hostname: postgres
+    environment:
+      - POSTGRES_DB=hero
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgresql_data:
